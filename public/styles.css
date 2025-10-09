@@ -231,14 +231,13 @@ input[type="submit"].btn:focus-visible {
 }
 
 .header-social {
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
+  position: static;       
   display: flex;
-  flex-direction: column; 
-  align-items: flex-end;  
-  gap: 0.4rem;           
-  z-index: 5;
+  align-items: center;
+  justify-content: center;   
+  gap: 0.6rem;
+  margin-top: .5rem;     
+  z-index: 1;
 }
 
 .header-social a { color: #111; transition: color .2s ease; }
@@ -257,20 +256,6 @@ input[type="submit"].btn:focus-visible {
 
 @media (max-width: 640px) {
   .header-social svg { width: 20px; height: 20px; }
-  .header-social { right: 1rem; top: .75rem; }
+  .header-social { margin-top: .5rem; } 
 }
 
-.header-email {
-  display: block;
-  margin-top: 0.3rem;
-  font-size: 0.9rem;
-  color: #111;
-  text-decoration: none;
-  text-align: right;
-  transition: color 0.2s ease;
-}
-
-.header-email:hover {
-  color: #3e4857;
-  text-decoration: underline;
-}
