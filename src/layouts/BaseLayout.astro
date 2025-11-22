@@ -11,7 +11,7 @@ const { title = "FlockLock - chytré známky pro dobytek na pastvě" } = Astro.p
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-512.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-512.png">
     <link rel="stylesheet" href="/styles.css" />
-  <style>
+    <style>
       @font-face {
         font-display: block;
         font-family: Roboto;
@@ -64,8 +64,21 @@ const { title = "FlockLock - chytré známky pro dobytek na pastvě" } = Astro.p
       var AUTOHIDE = Boolean(0);
     </script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 
-<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("a[data-user][data-domain]").forEach((el) => {
+          const user = el.getAttribute("data-user");
+          const domain = el.getAttribute("data-domain");
+          if (!user || !domain) return;
+          const email = `${user}@${domain}`;
+          el.setAttribute("href", `mailto:${email}`);
+          if (el.dataset.text === "true") {
+            el.textContent = email;
+          }
+        });
+      });
+    </script>
   </body>
 </html>
-
